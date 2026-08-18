@@ -32,28 +32,25 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
         a {
             display: inline-block;
-            padding: 10px 18px;
-            margin: 5px;
+            text-decoration: none;
             background-color: #a60c49;
             color: white;
-            text-decoration: none;
+            padding: 10px 18px;
+            margin: 5px;
             border-radius: 6px;
-            box-shadow: 0 4px 8px rgba(201, 170, 170, 0.84);
+            transition: 0.3s;
         }
 
         a:hover {
             background-color: #330015;
         }
+        
     </style>
 </head>
 <body>
-
     <h1>Welcome to my Page!!</h1>
-
     <p>Explore my student profile and personal details.</p>
-
-    <a href="<?= site_url('student'); ?>">HOME</a> 
-    <a href="<?= site_url('student/profile'); ?>">STUDENT PROFILE</a>
-
+    
+    <a href="<?= site_url('/student/profile'); ?>">STUDENT PROFILE</a>
 </body>
 </html>
