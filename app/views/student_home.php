@@ -52,8 +52,8 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
     <p>Explore my student profile and personal details.</p>
 
-    <a href="<?= site_url('student'); ?>">HOME</a> 
-    <a href="<?= site_url('student/profile'); ?>">STUDENT PROFILE</a>
+    <a href="/student">HOME</a> 
+    <a href="/student/profile">STUDENT PROFILE</a>
 
 </body>
 </html>

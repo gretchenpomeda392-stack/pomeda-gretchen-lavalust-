@@ -102,9 +102,9 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
         </div>
 
-         <div class="nav">
-            <a href="<?= site_url('student'); ?>">HOME</a>
-            <a href="<?= site_url('student/profile'); ?>">STUDENT PROFILE</a>
+        <div class="nav">
+            <a href="/student">HOME</a>
+            <a href="/student/profile">STUDENT PROFILE</a>
         </div>
 
     </div>
