@@ -5,7 +5,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Student Page</title>
+    <title>My Page</title>
 
     <style>
         body {
@@ -18,15 +18,15 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
         h1 {
             color: #580124;
-            margin-top: 280px;
-            font-size: 36px;
+            margin-top: 250px;
+            font-size: 65px;
             text-shadow: 2px 2px 4px #d5cbcf;
             font-weight: bold;
         }
 
         p {
             color: #7b0534;
-            font-size: 18px;
+            font-size: 25px;
             margin-bottom: 30px;
         }
 
@@ -48,7 +48,7 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 </head>
 <body>
 
-    <h1>Welcome to My Student Page</h1>
+    <h1>Welcome to my Page!!</h1>
 
     <p>Explore my student profile and personal details.</p>
 
