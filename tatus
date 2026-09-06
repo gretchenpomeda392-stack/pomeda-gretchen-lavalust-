@@ -1,0 +1,165 @@
+[33md6806ce[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Adds
+[33m68c5842[m Configure database environment variables
+[33ma76e203[m Add po
+[33m64b9196[m 'Adddd'
+[33m9da7e98[m Lab
+[33m6517f34[m Updateeeee ngaaa
+[33m89b6161[m Update nga
+[33mfc62476[m Lab4
+[33me7f9978[m Update
+[33mc4cf399[m Update Student info studentpage
+[33m806baf8[m Update Student info mypage
+[33mee675e4[m Update Student info lab3
+[33m4ff2718[m Updated Student info act3
+[33m7f1bddd[m Updated Student info studprof
+[33me50a0ed[m Updated Student info profile
+[33m4614dc7[m Updated Student info myprofile
+[33m528419f[m Update LavaLust landing page
+[33mb64fccb[m first commit
+[33m35be54b[m Fix Dockerfile for Render deployment
+[33m120f721[m first commit
+[33m3de404e[m Fixed typo error in main route
+[33m603fcb3[m fixed Router class to allow ->get('/', [Welcome::class, 'index'])
+[33mdf9b6ea[m fixed Router class to allow ->get('/', [Welcome::class, 'index'])
+[33med102f8[m Added Router to proxies so that it can be used statically
+[33m2a81084[m Added Router to proxies so that it can be used statically
+[33mff76c50[m Update Base Model to handle both static and non-static method calls
+[33m84383be[m updated CLI
+[33m21097d8[m Update ReadMe
+[33m085c7f1[m Update ReadMe
+[33mfa85448[m fixed PHPDoc bug with inteliphense
+[33m7299dc7[m fixed bug in cli
+[33m361d1dc[m fixed Form_validation and Model class bugs
+[33m913db35[m Update cli typos
+[33m210dec3[m udpate Proxy class
+[33mebfc290[m Added config to use Proxies. It is now not autoloaded by default
+[33mb3e3a98[m Added config to use Proxies. It is now not autoloaded by default
+[33md8be8dd[m Added Facades like feature called Proxies
+[33med9458a[m Fixed known bugs
+[33m5ec118c[m update PHPDoc. Fixed errors in Inteliphense Update
+[33m526fa82[m fixed some known bugs
+[33m64df183[m update docs
+[33m6bb5396[m fixed known bugs
+[33m150aef1[m fixed bugs in Profiler class
+[33m3c8e5a4[m Add feature allowing hacking the kernel files, debugger helper and Profiler class
+[33meaecd85[m fixed .htaccess throw internal error in apache 2.4+
+[33me8feba1[m update welcome_page
+[33mc4ac7bc[m Fixed API error PHPDocs
+[33me665518[m Fixed error pages
+[33m158a91b[m Fixed error pages
+[33mb10519a[m Improve Email class library
+[33mbcf4f27[m Add support to environment file .env
+[33mfee2de6[m Updated Database class
+[33m6c588cb[m Updated Cache class
+[33mc80aa07[m Modify Performance Class
+[33m551522f[m Modify Performance Class
+[33m551cb9d[m update docs
+[33m483410c[m update Request and Response classes
+[33m3d2246c[m update Request and Response classes
+[33mdf1d94b[m Add global_middleware in Router
+[33m81a1641[m update docs
+[33m1010eb0[m update route_config()
+[33m6f9b3b3[m Create separate class for Request and Response
+[33m5e18773[m Fixed known bugs and add more features to kernel
+[33m5dee2d2[m Fixed known bugs and add more features to kernel
+[33m3a9a63b[m Fixed known bugs and add more features to kernel
+[33m98f2d73[m Updated Migration class and CLI commands
+[33m03229f9[m update Session Class
+[33m642711d[m fixed some known bugs
+[33maeb1cfc[m Enhanced and Secured Kernel and Library classes (Ember, Session, Routine and url_helper base_url and site_url)
+[33m312c24d[m Enhanced and Secured Kernel and Library classes (Ember, Session, Routine and url_helper base_url and site_url)
+[33mbd55ddb[m add command php lava run
+[33m1fd88a6[m Fixed and updated base class Model
+[33m32d05b8[m updated .htaccess
+[33mc935cf0[m Updated to 4.6.0
+[33mef985cf[m Updated to 4.6.0
+[33mcc60714[m Merge branch 'dev-v4' of https://github.com/ronmarasigan/LavaLust into dev-v4
+[33m78c7fce[m updated comments
+[33m32a2440[m Updated comments
+[33m0a03f1f[m Update default location of composer vendor folder. It is now in root.
+[33m1fc11b0[m add any() in router
+[33m82e5349[m update README File
+[33mcad5ec0[m update README File
+[33mb880c77[m Add optional params in Router
+[33maa49dd9[m Fixed typos in cli
+[33mbccdbc8[m Fixed bug in Ember class, undefined filter if contains parameters
+[33m9522941[m Added Middleware class
+[33m1e5f696[m Added Middleware class
+[33m209db56[m Added Middleware class
+[33m886eda5[m fixed bug in before_action()
+[33med38eea[m Updated Upload class, fixed bug in Ember class and add validation of table and column names in Database class
+[33m3c0417d[m Updated Upload class, fixed bug in Ember class and add validation of table and column names in Database class
+[33mbf26927[m Fixed known bugs like in accessing view files in folder not found issue
+[33m2b1bdd6[m Fixed bug in Invoke Class view method. Accessing view file inside folder throw no found exception now fixed.
+[33ma37949e[m fixed bug in loading view. now accepting other file extensions like before
+[33mac026ef[m fixed bugs
+[33meb4996a[m fixed bugs
+[33m622ea08[m Merge branch 'dev-v4' of https://github.com/ronmarasigan/LavaLust into dev-v4
+[33m93171f4[m fixed bugs
+[33m05d5121[m fixed bugs
+[33m4407bc5[m Updated Error Class
+[33m4cd2132[m Fix bug in Session class and add support to database session handler
+[33m4b6ad37[m Fix bug in Ember Template Class
+[33me176ea5[m Add Ember Template Engine and enhaced Session class security
+[33m62a9f2c[m Add Ember Template Engine and enhaced Session class security
+[33me879da8[m Typo Error
+[33m12bc09f[m Critical bug fixed in Config class with get_config() and config_item()
+[33m0749b10[m Critical bug fixed in Config class with get_config() and config_ite()
+[33mdc7d734[m update welcome_page
+[33mc2146a9[m updated version to v4.3.0
+[33m14ca19f[m updated version to v4.3.0
+[33me228467[m updated version to v4.3.0
+[33m0367304[m Fix possible security risk in Database class
+[33m3e65d1f[m updated to version v4.2.5
+[33meb714c9[m updated to version v4.2.5
+[33mfdfd583[m updated to version v4.2.5
+[33m3f66e0f[m Merge branch 'dev-v4' of https://github.com/ronmarasigan/LavaLust into dev-v4
+[33m0fde08a[m updated to version v4.2.5
+[33mf266d27[m Merge pull request #69 from ronmarasigan/dev-v4-HMVC
+[33md5fd9b7[m first commit to HMVC
+[33m113508b[m Fixed API class
+[33m910d5ea[m Fixed minor bugs
+[33m8d75e74[m Fixed minor bugs
+[33md5a7789[m fixed bugs in Base Model class and added some usable methods in eger loading
+[33ma87b41a[m Updated CLI commands
+[33m4baffa1[m updated cli.php
+[33m8c96f59[m updated cli.php
+[33m5e73013[m update welcome page
+[33m551a3d8[m Allowed to use @ and -> to create routes. Soon :: will be just be for backwards compatibility
+[33ma278247[m Updated welcome and error page. It is now more elegant and shows more debug info
+[33m7f06adb[m Updated welcome and error page. It is now more elegant and shows more debug info
+[33m3e167c6[m Added support to other database drivers
+[33m2a464c3[m Added support to other database drivers
+[33m84d32f9[m Added support to other database drivers
+[33me33ed29[m CLI
+[33mfb55823[m Updated Pagination and Fix buges
+[33m263c170[m Updated Routine and url_helper
+[33mbaaa6bd[m Updated Model Class
+[33m8771913[m updated version
+[33m22994b6[m updated version
+[33m25413ca[m updated version
+[33m842018d[m Create LICENSE
+[33m6969e90[m updated version
+[33m4c38fb9[m updated version
+[33m3191562[m Create LICENSE
+[33md4e516b[m updated version
+[33mffcac8a[m Merge branch 'dev-v4' of https://github.com/ronmarasigan/LavaLust into dev-v4
+[33mdab8c9c[m updated version
+[33m1537e49[m Create LICENSE
+[33m1f494c0[m updated version
+[33m15c88a5[m updated version
+[33m6552733[m updated version
+[33m362dc81[m updated version
+[33m14462fd[m Update Migration Class
+[33m4e9edfe[m update API Helper Class
+[33m1d75bbb[m add API Helper Class
+[33m28fd158[m Updated Model and Database Class
+[33m88ece5e[m Fixed bug in DBForge class during migration
+[33m627aa3e[m updated docs
+[33m64fef16[m updated docs
+[33mbab363a[m updated Encryption Class
+[33m253e718[m update cli.php
+[33m6c79e94[m update cli.php
+[33m1707a07[m update cli.php
+[33mdefc26e[m update Invoker class dbforge method missing
+[33ma851ebb[m Update Cache library. Add auto 
