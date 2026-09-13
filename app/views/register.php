@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Register</title>
 
     <style>
         * {
@@ -21,7 +21,7 @@
             align-items: center;
         }
 
-        .login-container {
+        .register-container {
             width: 430px;
             background-color: #ffffff;
             border: 2px solid #2563eb;
@@ -59,7 +59,7 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         label {
@@ -90,7 +90,7 @@
         button {
             width: 100%;
             padding: 12px;
-            margin-top: 5px;
+            margin-top: 8px;
             border: none;
             border-radius: 7px;
             background-color: #2563eb;
@@ -101,25 +101,26 @@
             cursor: pointer;
         }
 
-        .register-link {
+        .login-link {
             text-align: center;
             margin-top: 22px;
         }
 
-        .register-link a {
+        .login-link a {
             color: #2563eb;
             text-decoration: none;
             font-size: 15px;
             font-weight: bold;
         }
+
     </style>
 </head>
 
 <body>
 
-    <div class="login-container">
+    <div class="register-container">
 
-        <h1>Login</h1>
+        <h1>Create Account</h1>
 
         <?php if (isset($error)): ?>
             <div class="message error">
@@ -133,14 +134,24 @@
             </div>
         <?php endif; ?>
 
-        <form action="<?= site_url('login') ?>" method="POST">
+        <form action="<?= site_url('register') ?>" method="POST">
 
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input
                     type="text"
-                    id="username"
                     name="username"
+                    id="username"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input
+                    type="email"
+                    name="email"
+                    id="email"
                     required
                 >
             </div>
@@ -149,19 +160,29 @@
                 <label for="password">Password:</label>
                 <input
                     type="password"
-                    id="password"
                     name="password"
+                    id="password"
                     required
                 >
             </div>
 
-            <button type="submit">Login</button>
+            <div class="form-group">
+                <label for="passconfirm">Confirm Password:</label>
+                <input
+                    type="password"
+                    name="passconfirm"
+                    id="passconfirm"
+                    required
+                >
+            </div>
+
+            <button type="submit">Register</button>
 
         </form>
 
-        <div class="register-link">
-            <a href="<?= site_url('register') ?>">
-                Don't have an account? Create one
+        <div class="login-link">
+            <a href="<?= site_url('login') ?>">
+                Already have an account? Login
             </a>
         </div>
 

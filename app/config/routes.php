@@ -51,6 +51,8 @@ $router->get('/student/profile', 'StudentController::profile');
 $router->get('show_users', 'UsersController::show_users');
 
 
+$router->match('/register', 'AuthController::register', ['GET', 'POST']);
+$router->match('/login', 'AuthController::login', ['GET', 'POST']);
 
 
 $router->get('/Product_Views', 'ProductController::Product_Views')->middleware('auth');
@@ -58,17 +60,5 @@ $router->get('/products', 'ProductController::index')->middleware('auth');
 $router->any('/products/create', 'ProductController::create')->middleware('auth');
 $router->any('/products/edit/{id}', 'ProductController::edit')->middleware('auth');
 $router->get('/products/delete/{id}', 'ProductController::delete')->middleware('auth');
-$router->get('/login', function() {
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
-    $_SESSION['logged_in'] = true;
-    echo "You are now logged in!";
-});
-$router->get('/not_logged_in', function() {
-    echo "Please logged in first!";
-});
-$router->get('/logout', function() {
-    $_SESSION['logged_in'] = false;
-    echo "You are now logged out!";
-});
+
+$router->get('/logout', 'AuthController::logout');
