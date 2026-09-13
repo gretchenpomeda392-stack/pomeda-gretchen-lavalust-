@@ -79,18 +79,7 @@ $config['environment'] = getenv('APP_ENV') ?: 'development';
 | WARNING: You MUST set this value!
 |
 */
-$configured_base_url = getenv('BASE_URL') ?: getenv('RENDER_EXTERNAL_URL');
-
-if ($configured_base_url) {
-	$config['base_url'] = rtrim($configured_base_url, '/') . '/';
-} else {
-	$scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
-		? 'https'
-		: 'http';
-	$host = $_SERVER['HTTP_HOST'] ?? '127.0.0.1:3000';
-
-	$config['base_url'] = $scheme . '://' . $host . '/';
-}
+$config['base_url'] = 'http://127.0.0.1:3000/';
 
 /*
 |--------------------------------------------------------------------------
@@ -274,8 +263,7 @@ $config['session_hmac_secret']     = getenv('APP_KEY') ?: '';
 $config['cookie_prefix']           = '';
 $config['cookie_domain']           = '';
 $config['cookie_path']             = '/';
-$config['cookie_secure']           = (strtolower($config['environment']) === 'production')
-	|| (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off');
+$config['cookie_secure']           = FALSE;
 $config['cookie_expiration']       = 86400;
 $config['cookie_httponly']         = FALSE;
 $config['cookie_samesite']         = 'Strict';
