@@ -19,7 +19,7 @@ class AuthMiddleware
             $_SESSION['logged_in'] !== true
         ) {
             // Not logged in → go to login page
-            redirect('/login');
+            redirect('/Product_Views');
             exit();
         }
 
