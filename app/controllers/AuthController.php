@@ -92,59 +92,56 @@ class AuthController extends Controller
     // =========================
 
     public function login()
-    {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+{
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-            $username = $this->request->post('username');
-            $password = $this->request->post('password');
+        $username = $this->request->post('username');
+        $password = $this->request->post('password');
 
-            // Check empty fields
-            if (empty($username) || empty($password)) {
+        // Check empty fields
+        if (empty($username) || empty($password)) {
 
-                $this->call->view('login', [
-                    'error' => 'Please enter your username and password.'
-                ]);
+            $this->call->view('login', [
+                'error' => 'Please enter your username and password.'
+            ]);
 
-                return;
-            }
+            return;
+        }
 
-            // Find user
-            $user = $this->AuthModel->get_by_username($username);
+        // Find user
+        $user = $this->AuthModel->get_by_username($username);
 
-            // Check username and password
-            if ($user && password_verify($password, $user['password'])) {
+        // Check username and password
+        if ($user && password_verify($password, $user['password'])) {
 
-                // Start PHP session
-                if (session_status() === PHP_SESSION_NONE) {
-                    session_start();
-                }
+            // Set LavaLust session
+            $this->session->set_userdata([
+                'logged_in' => true,
+                'user_id' => $user['id'],
+                'username' => $user['username']
+            ]);
 
-                // Regenerate session ID for security
-                session_regenerate_id(true);
+            // Regenerate session ID
+            $this->session->sess_regenerate(true);
 
-                // Save login information
-                $_SESSION['logged_in'] = true;
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['username'] = $user['username'];
-
-                // Go to protected Product Views
-                redirect('/Product_Views');
-                return;
-
-            } else {
-
-                $this->call->view('login', [
-                    'error' => 'Invalid username or password.'
-                ]);
-
-                return;
-            }
+            // Redirect to Product Views
+            redirect('/Product_Views');
+            return;
 
         } else {
 
-            $this->call->view('login');
+            $this->call->view('login', [
+                'error' => 'Invalid username or password.'
+            ]);
+
+            return;
         }
+
+    } else {
+
+        $this->call->view('login');
     }
+}
 
 
     // =========================

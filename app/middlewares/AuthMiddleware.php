@@ -8,17 +8,15 @@ class AuthMiddleware
 {
     public function handle(Closure $next)
     {
-        // Start session
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+        // Get LavaLust instance
+        $lava = lava_instance();
 
-        // Check if logged in
-        if (
-            !isset($_SESSION['logged_in']) ||
-            $_SESSION['logged_in'] !== true
-        ) {
-            redirect('/not_logged_in');
+        // Load LavaLust session
+        $lava->call->library('session');
+
+        // Check login session
+        if ($lava->session->userdata('logged_in') !== true) {
+            redirect('/login');
             exit();
         }
 
