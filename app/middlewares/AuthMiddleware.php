@@ -8,15 +8,18 @@ class AuthMiddleware
 {
     public function handle(Closure $next)
     {
+        // Start PHP session
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
+        // Check if user is logged in
         if (
             !isset($_SESSION['logged_in']) ||
             $_SESSION['logged_in'] !== true
         ) {
-            redirect('/not_logged_in');
+            // Not logged in → go to login page
+            redirect('/login');
             exit();
         }
 

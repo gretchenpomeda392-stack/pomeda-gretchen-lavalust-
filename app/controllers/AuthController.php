@@ -76,13 +76,7 @@ class AuthController extends Controller
                 'password' => $hashed_password
             ]);
 
-            // Success message
-            $this->session->set_flashdata(
-                'success',
-                'Account created successfully.'
-            );
-
-            // Go to login
+            // Go to login after successful registration
             redirect('/login');
             return;
 
@@ -120,25 +114,31 @@ class AuthController extends Controller
             // Check username and password
             if ($user && password_verify($password, $user['password'])) {
 
-    if (session_status() === PHP_SESSION_NONE) {
-        session_start();
-    }
+                // Start PHP session
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
 
-    $_SESSION['logged_in'] = true;
-    $_SESSION['user_id'] = $user['id'];
-    $_SESSION['username'] = $user['username'];
+                // Regenerate session ID for security
+                session_regenerate_id(true);
 
-    redirect('/Product_Views');
-    return;
+                // Save login information
+                $_SESSION['logged_in'] = true;
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
 
-} else {
+                // Go to protected Product Views
+                redirect('/Product_Views');
+                return;
 
-    $this->call->view('login', [
-        'error' => 'Invalid username or password.'
-    ]);
+            } else {
 
-    return;
-}
+                $this->call->view('login', [
+                    'error' => 'Invalid username or password.'
+                ]);
+
+                return;
+            }
 
         } else {
 
@@ -153,8 +153,19 @@ class AuthController extends Controller
 
     public function logout()
     {
-        $this->session->sess_destroy();
+        // Start session
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
 
+        // Clear session data
+        $_SESSION = [];
+
+        // Destroy session
+        session_destroy();
+
+        // Return to login
         redirect('/login');
+        exit();
     }
 }
