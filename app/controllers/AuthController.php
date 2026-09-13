@@ -120,32 +120,25 @@ class AuthController extends Controller
             // Check username and password
             if ($user && password_verify($password, $user['password'])) {
 
-                // IMPORTANT:
-                // This is required by AuthMiddleware
-                $this->session->set_userdata('logged_in', true);
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
 
-                $this->session->set_userdata(
-                    'user_id',
-                    $user['id']
-                );
+    $_SESSION['logged_in'] = true;
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['username'] = $user['username'];
 
-                $this->session->set_userdata(
-                    'username',
-                    $user['username']
-                );
+    redirect('/Product_Views');
+    return;
 
-                // Go to protected Product Views
-                redirect('/Product_Views');
-                return;
+} else {
 
-            } else {
+    $this->call->view('login', [
+        'error' => 'Invalid username or password.'
+    ]);
 
-                $this->call->view('login', [
-                    'error' => 'Invalid username or password.'
-                ]);
-
-                return;
-            }
+    return;
+}
 
         } else {
 
