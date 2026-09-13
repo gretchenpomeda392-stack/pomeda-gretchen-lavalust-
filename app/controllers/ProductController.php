@@ -33,8 +33,7 @@ class ProductController extends Controller {
             ];
 
             if ($this->ProductModel->insert($data)) {
-                header('Location: /Product_Views');
-                exit();
+                redirect('Product_Views');
             }
         }
         $this->call->view('create');
@@ -50,18 +49,18 @@ class ProductController extends Controller {
             ];
 
             if ($this->ProductModel->update_product($id, $data)) {
-                header('Location: /Product_Views');
+                redirect('Product_Views');
                 exit();
             }
         }
 
-        $data['product'] = $this->ProductModel->get_one($id);
+        $data['products'] = $this->ProductModel->get_one($id);
         $this->call->view('edit', $data);
     }
 
     public function delete($id) {
         $this->ProductModel->delete_product($id);
-        header('Location: /Product_Views');
+        redirect('Product_Views');
         exit();
     }
 }
