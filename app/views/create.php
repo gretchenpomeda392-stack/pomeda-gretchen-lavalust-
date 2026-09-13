@@ -31,7 +31,6 @@
         }
 
         .header {
-            border-bottom: 2px solid #dbe7f3;
             padding-bottom: 18px;
             margin-bottom: 25px;
         }
@@ -41,8 +40,9 @@
             color: #1e3a8a;
             font-size: 28px;
             font-weight: 600;
+            text-align: center;
         }
-
+        
         .form-group {
             margin-bottom: 20px;
         }
@@ -71,15 +71,19 @@
 
         input[type="text"]:focus,
         input[type="number"]:focus,
-
         textarea:focus {
-        outline: none;
-        border: 1px solid #cbd5e1;
-        box-shadow: none;
-        background-color: #f8fafc;
-}
+            outline: none;
+            border-color: #cbd5e1;
+            background-color: #f8fafc;
+            box-shadow: none;
+        }
 
-        .addprod {
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .actions {
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -89,7 +93,7 @@
             border-top: 1px solid #e2e8f0;
         }
 
-        .btn-add {
+        .btn-submit {
             background-color: #1d4ed8;
             color: #ffffff;
             border: 1px solid #1d4ed8;
@@ -102,7 +106,7 @@
             transition: 0.2s ease;
         }
 
-        .btn-back {
+        .btn-cancel {
             display: inline-block;
             color: #1d4ed8;
             background-color: #ffffff;
@@ -126,7 +130,8 @@
 
         <form action="/products/create" method="POST">
             <div class="form-group">
-                <label for="product_name">Product Name:</label>
+                <label for="product_name">PRODUCT NAME:</label>
+
                 <input
                     type="text"
                     id="product_name"
@@ -136,7 +141,7 @@
             </div>
 
             <div class="form-group">
-                <label for="description">Description:</label>
+                <label for="description">DESCRIPTION:</label>
 
                 <textarea
                     id="description"
@@ -147,7 +152,7 @@
             </div>
 
             <div class="form-group">
-                <label for="price">Price:</label>
+                <label for="price">PRICE:</label>
 
                 <input
                     type="number"
@@ -159,7 +164,7 @@
             </div>
 
             <div class="form-group">
-                <label for="quantity">Quantity:</label>
+                <label for="quantity">QUANTITY:</label>
 
                 <input
                     type="number"
@@ -169,16 +174,19 @@
                 >
             </div>
 
-            <div class="addprod">
-                <button type="add" class="btn-add">
+            <div class="actions">
+                <button type="submit" class="btn-submit">
                     Add Product
                 </button>
 
-                <a href="/Product_Views" class="btn-back">
+                <a href="/Product_Views" class="btn-cancel">
                     Back to Product List
                 </a>
             </div>
+
         </form>
+
     </div>
+
 </body>
 </html>

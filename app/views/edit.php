@@ -19,7 +19,7 @@
             min-height: 100vh;
         }
 
-        .card {
+        .container {
             width: 100%;
             max-width: 650px;
             margin: 0 auto;
@@ -31,7 +31,6 @@
         }
 
         .header {
-            border-bottom: 2px solid #dbe7f3;
             padding-bottom: 18px;
             margin-bottom: 25px;
         }
@@ -41,6 +40,12 @@
             color: #1e3a8a;
             font-size: 28px;
             font-weight: 600;
+            text-align: center;
+        }
+
+        .form-container {
+            width: 100%;
+            margin: 0 auto;
         }
 
         .form-group {
@@ -72,11 +77,11 @@
         input[type="text"]:focus,
         input[type="number"]:focus,
         textarea:focus {
-        outline: none;
-        border: 1px solid #cbd5e1;
-        box-shadow: none;
-        background-color: #f8fafc;
-}
+            outline: none;
+            border-color: #cbd5e1;
+            background-color: #f8fafc;
+            box-shadow: none;
+        }
 
         textarea {
             resize: vertical;
@@ -93,7 +98,7 @@
             border-top: 1px solid #e2e8f0;
         }
 
-        .btn-update {
+        .btn-submit {
             background-color: #1d4ed8;
             color: #ffffff;
             border: 1px solid #1d4ed8;
@@ -106,7 +111,7 @@
             transition: 0.2s ease;
         }
 
-        .btn-back {
+        .btn-cancel {
             display: inline-block;
             color: #1d4ed8;
             background-color: #ffffff;
@@ -124,7 +129,7 @@
                 padding: 20px 10px;
             }
 
-            .card {
+            .container {
                 padding: 20px;
             }
 
@@ -132,15 +137,8 @@
                 font-size: 24px;
             }
 
-            .actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .btn-update,
-            .btn-back {
+            .form-container {
                 width: 100%;
-                text-align: center;
             }
         }
     </style>
@@ -148,76 +146,82 @@
 
 <body>
 
-    <div class="card">
+    <div class="container">
 
         <div class="header">
-            <h1>Update Product</h1>
+            <div>
+                <h1>Update Product</h1>
+            </div>
         </div>
 
-        <form action="/products/edit/<?= $product['id']; ?>" method="POST">
+        <div class="form-container">
 
-            <div class="form-group">
-                <label for="product_name">Product Name:</label>
+            <form action="/products/edit/<?= $product['id']; ?>" method="POST">
 
-                <input
-                    type="text"
-                    id="product_name"
-                    name="product_name"
-                    value="<?= htmlspecialchars($product['product_name']); ?>"
-                    required
-                >
-            </div>
+                <div class="form-group">
+                    <label for="product_name">PRODUCT NAME:</label>
 
-            <div class="form-group">
-                <label for="description">Description:</label>
+                    <input
+                        type="text"
+                        id="product_name"
+                        name="product_name"
+                        value="<?= htmlspecialchars($product['product_name']); ?>"
+                        required
+                    >
+                </div>
 
-                <textarea
-                    id="description"
-                    name="description"
-                    rows="4"
-                    required><?= htmlspecialchars($product['description']); ?></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="description">DESCRIPTION:</label>
 
-            <div class="form-group">
-                <label for="price">Price:</label>
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="4"
+                        required><?= htmlspecialchars($product['description']); ?></textarea>
+                </div>
 
-                <input
-                    type="number"
-                    id="price"
-                    step="0.01"
-                    name="price"
-                    value="<?= $product['price']; ?>"
-                    min="0"
-                    required
-                >
-            </div>
+                <div class="form-group">
+                    <label for="price">PRICE:</label>
 
-            <div class="form-group">
-                <label for="quantity">Quantity:</label>
+                    <input
+                        type="number"
+                        id="price"
+                        step="0.01"
+                        name="price"
+                        value="<?= $product['price']; ?>"
+                        min="0"
+                        required
+                    >
+                </div>
 
-                <input
-                    type="number"
-                    id="quantity"
-                    name="quantity"
-                    value="<?= $product['quantity']; ?>"
-                    min="0"
-                    required
-                >
-            </div>
+                <div class="form-group">
+                    <label for="quantity">QUANTITY:</label>
 
-            <div class="actions">
+                    <input
+                        type="number"
+                        id="quantity"
+                        name="quantity"
+                        value="<?= $product['quantity']; ?>"
+                        min="0"
+                        required
+                    >
+                </div>
 
-                <button type="update" class="btn-update">
-                    Update Product
-                </button>
+                <div class="actions">
 
-                <a href="/Product_Views" class="btn-back">
-                    Back to Product List
-                </a>
+                    <button type="submit" class="btn-submit">
+                        Update Product
+                    </button>
 
-            </div>
+                    <a href="/Product_Views" class="btn-cancel">
+                        Back to Product List
+                    </a>
 
-        </form>
+                </div>
+
+            </form>
+
+        </div>
 
     </div>
 
