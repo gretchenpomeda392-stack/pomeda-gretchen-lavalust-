@@ -1,4 +1,5 @@
 <?php
+
 defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 
 /**
@@ -10,15 +11,10 @@ class AuthController extends Controller
     {
         parent::__construct();
 
-        $this->call->library(['form_validation', 'session']);
+        $this->call->library('form_validation');
         $this->call->model('AuthModel');
         $this->call->helper('url');
     }
-
-
-    // =========================
-    // REGISTER
-    // =========================
 
     public function register()
     {
@@ -31,9 +27,9 @@ class AuthController extends Controller
 
             // Validation
             if (!$this->form_validation->validate([
-                'username' => 'required | min_length[5] | max_length[20] | alpha_numeric',
+                'username' => 'required | min_length[10] | max_length[20] | alpha_numeric',
                 'email' => 'required | valid_email',
-                'password' => 'required | min_length[8] | max_length[20]',
+                'password' => 'required | min_length[10] | max_length[20]',
                 'passconfirm' => 'required'
             ])) {
 
@@ -86,82 +82,71 @@ class AuthController extends Controller
         }
     }
 
-
-    // =========================
-    // LOGIN
-    // =========================
-
     public function login()
-{
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        $username = $this->request->post('username');
-        $password = $this->request->post('password');
+            $username = $this->request->post('username');
+            $password = $this->request->post('password');
 
-        // Check empty fields
-        if (empty($username) || empty($password)) {
+            if (empty($username) || empty($password)) {
 
-            $this->call->view('login', [
-                'error' => 'Please enter your username and password.'
-            ]);
+                $this->call->view('login', [
+                    'error' => 'Please enter your username and password.'
+                ]);
 
-            return;
-        }
+                return;
+            }
 
-        // Find user
-        $user = $this->AuthModel->get_by_username($username);
+            // Get user from database
+            $user = $this->AuthModel->get_by_username($username);
 
-        // Check username and password
-        if ($user && password_verify($password, $user['password'])) {
+            // Check username and password
+            if ($user && password_verify($password, $user['password'])) {
 
-            // Set LavaLust session
-            $this->session->set_userdata([
-                'logged_in' => true,
-                'user_id' => $user['id'],
-                'username' => $user['username']
-            ]);
+                // Start native PHP session
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
 
-            // Regenerate session ID
-            $this->session->sess_regenerate(true);
+                // Store login information
+                $_SESSION['logged_in'] = true;
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['username'];
 
-            // Redirect to Product Views
-            redirect('/Product_Views');
-            return;
+                // Redirect to products
+                redirect('/Product_Views');
+                exit();
+
+            } else {
+
+                $this->call->view('login', [
+                    'error' => 'Invalid username or password.'
+                ]);
+
+                return;
+            }
 
         } else {
 
-            $this->call->view('login', [
-                'error' => 'Invalid username or password.'
-            ]);
-
-            return;
+            $this->call->view('login');
         }
-
-    } else {
-
-        $this->call->view('login');
     }
-}
-
-
-    // =========================
-    // LOGOUT
-    // =========================
 
     public function logout()
     {
-        // Start session
+        // Start native PHP session if needed
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }
 
-        // Clear session data
+        // Clear session
         $_SESSION = [];
 
         // Destroy session
         session_destroy();
 
-        // Return to login
+        // Go back to login
         redirect('/login');
         exit();
     }
