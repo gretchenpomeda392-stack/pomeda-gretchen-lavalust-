@@ -161,7 +161,7 @@
         </form>
 
         <div class="register-link">
-            <a href="<?= site_url('register') ?>">
+            <a href="<?= site_url('/register') ?>">
                 Don't have an account? Create!
             </a>
         </div>

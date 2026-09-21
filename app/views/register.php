@@ -181,7 +181,7 @@
         </form>
 
         <div class="login-link">
-            <a href="<?= site_url('login') ?>">
+            <a href="<?= site_url('/login') ?>">
                 Already have an account? Login
             </a>
         </div>
