@@ -134,7 +134,7 @@
             </div>
         <?php endif; ?>
 
-        <form action="<?= site_url('register') ?>" method="POST">
+        <form method="POST" action="<?= base_url('index.php/register') ?>">
 
             <div class="form-group">
                 <label for="username">Username:</label>
@@ -181,7 +181,7 @@
         </form>
 
         <div class="login-link">
-            <a href="<?= site_url('login') ?>">
+            <a href="<?= base_url('index.php/login') ?>">
                 Already have an account? Login
             </a>
         </div>
