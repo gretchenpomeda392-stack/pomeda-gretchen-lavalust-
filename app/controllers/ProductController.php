@@ -33,7 +33,7 @@ class ProductController extends Controller {
             ];
 
             if ($this->ProductModel->insert($data)) {
-                header('Location: /Product_Views');
+                return redirect('/Product_Views');
                 exit();
             }
         }
@@ -50,7 +50,7 @@ class ProductController extends Controller {
             ];
 
             if ($this->ProductModel->update_product($id, $data)) {
-                header('Location: /Product_Views');
+                return redirect('/Product_Views');
                 exit();
             }
         }
@@ -61,7 +61,7 @@ class ProductController extends Controller {
 
     public function delete($id) {
         $this->ProductModel->delete_product($id);
-        header('Location: /Product_Views');
+        return redirect('/Product_Views');
         exit();
     }
 }
