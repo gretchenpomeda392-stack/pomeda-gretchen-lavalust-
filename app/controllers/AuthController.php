@@ -11,7 +11,7 @@ class AuthController extends Controller
     {
         parent::__construct();
 
-        $this->call->library('form_validation');
+        $this->call->library('form_validation', 'session');
         $this->call->model('AuthModel');
         $this->call->helper('url');
     }

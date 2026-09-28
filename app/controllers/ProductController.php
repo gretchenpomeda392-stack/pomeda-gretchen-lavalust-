@@ -37,7 +37,7 @@ class ProductController extends Controller {
                 exit();
             }
         }
-        $this->call->view('create');
+        $this->call->view('products/create');
     }
 
     public function edit($id) {
@@ -56,7 +56,7 @@ class ProductController extends Controller {
         }
 
         $data['product'] = $this->ProductModel->get_one($id);
-        $this->call->view('edit', $data);
+        $this->call->view('products/edit', $data);
     }
 
     public function delete($id) {

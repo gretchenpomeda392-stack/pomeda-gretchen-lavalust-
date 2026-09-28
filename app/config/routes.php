@@ -51,6 +51,8 @@ $router->get('/student/profile', 'StudentController::profile');
 $router->get('show_users', 'UsersController::show_users');
 
 
+
+
 $router->match('/register', 'AuthController::register', ['GET', 'POST']);
 $router->match('/login', 'AuthController::login', ['GET', 'POST']);
 
