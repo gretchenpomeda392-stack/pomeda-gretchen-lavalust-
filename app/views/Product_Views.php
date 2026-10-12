@@ -111,7 +111,7 @@
     <div class="container">
         <div class="header">
             <div>
-                <h1>Welcome to Products View</h1>
+                <h1>Welcome to Products Dashboard!</h1>
             </div>
         </div>
 
